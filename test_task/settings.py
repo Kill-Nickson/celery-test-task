@@ -111,8 +111,7 @@ LOGIN_URL = '/users/login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.custom.EmailBackend'
 
-CELERY_BROKER_URL = 'redis://redistogo:d416246889a26f01d510853cb737a654@pearlfish.redistogo.com:9994/'
-# 'redis://:p647ea66afdea0a8bf61323d6ca5bc3ae3e0ec563762a6b63b7e200edde96f28a@ec2-3-210-15-236.compute-1.amazonaws.com:31729'
+CELERY_BROKER_URL = 'redis://:p647ea66afdea0a8bf61323d6ca5bc3ae3e0ec563762a6b63b7e200edde96f28a@ec2-3-210-15-236.compute-1.amazonaws.com:31729'
 # 'redis://redis-django-data-generator-10183276:2bjYomapBjEYw3LJhRaipfh3gqEcsrZc@redis-10244.c10.us' \
 #                     '-east-1-2.ec2.cloud.redislabs.com:10244 '
 
