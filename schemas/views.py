@@ -26,7 +26,7 @@ class SchemaDetailView(LoginRequiredMixin, DetailView):
     def get(self, request, **kwargs):
         if 'path' in request.GET:
             file_path = settings.BASE_DIR + '/' + request.GET['path']
-            file_path = file_path.replace('/', '\\')
+#             file_path = file_path.replace('/', '\\')
             file_wrapper = FileWrapper(open(file_path, 'rb'))
             file_mimetype = mimetypes.guess_type(file_path)
             response = HttpResponse(file_wrapper, content_type=file_mimetype)
