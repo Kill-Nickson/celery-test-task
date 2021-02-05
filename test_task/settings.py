@@ -7,9 +7,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fzjz1a)(-4n=k=78ei+(59=q$^*olp_my)8(m9!9u3_jv4n+tp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-data-generator.herokuapp.com',
+                 '127.0.0.1']
 
 # Application definition
 
@@ -97,7 +98,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/NeverSurrender/django_basics/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -110,8 +111,8 @@ LOGIN_URL = '/users/login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.custom.EmailBackend'
 
-CELERY_BROKER_URL = 'redis://:p2c1df50df3346bc68f6f26f0c2325935c26662e880d454969bc97d2cd186300c@ec2-107-23-72-44' \
-                    '.compute-1.amazonaws.com:6379 '
+CELERY_BROKER_URL = 'redis://redis-django-data-generator-10183276:2bjYomapBjEYw3LJhRaipfh3gqEcsrZc@redis-10244.c10.us' \
+                    '-east-1-2.ec2.cloud.redislabs.com:10244 '
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
