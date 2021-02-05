@@ -2,6 +2,7 @@ import csv
 import shutil
 from io import StringIO
 from random import randint
+from time import sleep
 
 from celery import shared_task
 
@@ -10,6 +11,7 @@ from .models import Dataset
 
 @shared_task
 def create_csv_2(dataset_pk, rows_amount, column_separator, columns):
+    sleep(2)
     try:
         parsed_cols = []
         split_columns = columns.split(';')
