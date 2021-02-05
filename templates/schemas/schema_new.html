@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>New schema</h1>
+    <form action="" method="post" id="new-schema-form" data-url="{% url 'schema_new' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <h4>Schema columns</h4>
+
+<!---->
+        <div class="container pt-4">
+            <div class="table-responsive">
+              <table class="table table-bordered col-table">
+                <thead>
+                  <tr>
+                    <th class="text-center">Order</th>
+                    <th class="text-center">Column name</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center" style="width: 10%"></th>
+                    <th class="text-center" style="width: 10%"></th>
+                    <th class="text-center">Remove Row</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+              </table>
+            </div>
+            <button class="btn btn-md btn-primary" id="addBtn" type="button" style="margin-bottom:50px">
+                Add new column
+            </button>
+        </div>
+<!---->
+        <button class="btn btn-success ml-2" type="submit" style="margin-bottom:100px;">Save</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="article-entry">
+        <form class="form-inline" action="" method="get" id="generate-data" data-url="{% url 'schema_detail' schema.pk %}">
+            <h2 style="margin-left:5%;margin-right:20%">Schema: {{ object.title }}</h2>
+            <div class="form-group" style="margin-left:5%">
+                <label for="exampleInputName2">Rows:</label>
+                <input type="text" class="form-control" name="rows-amount" placeholder="amount of rows">
+            </div>
+            <button style="margin-left:1%" type="submit" class="btn btn-info">Generate data</button>
+        </form>
+    </div>
+
+    <div class="container pt-4">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">Number</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                    {% for dataset in schema.dataset.all %}
+                    <tr class="dataset-names">
+                        <td class="row-index text-center">
+                            <p>{{forloop.counter}}</p>
+                        </td>
+                        <td class="row-index text-center">
+                            <p>{{dataset.date}}</p>
+                        </td>
+                        <td class="row-index text-center">
+                            {% if dataset.status == 'Ready' %}
+                            <span class="badge bg-success">
+                                <h6 style="color:white;padding-top:10%">{{dataset.status}}</h6>
+                            </span>
+                            {%endif%}
+                            {% if dataset.status == 'Processing' %}
+                            <span class="badge bg-danger">
+                                <h6 style="color:white;padding-top:10%">{{dataset.status}}</h6>
+                            </span>
+                            {%endif%}
+                        </td>
+                        <td class="row-index text-center">
+                            {% if dataset.status == 'Ready' %}
+                                <button value="{{ dataset.csv_file.url }}" data-url="{% url 'schema_detail' schema.pk  %}"
+                                    class="btn btn-dark float-right download-btn">Download</button>
+                            {%endif%}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+        </div>
+
+{% endblock content %}
