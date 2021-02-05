@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+	<div class="jumbotron">
+		<h1 class="display-4">Data schemas app</h1>
+		<p class="lead" style="margin-top:5%;">
+			<a class="btn btn-primary btn-lg" href="{% url 'schema_list' %}" role="button">View all schemas</a>
+		</p>
+	</div>
+{% endblock content %}
