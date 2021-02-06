@@ -48,7 +48,7 @@
                         <td class="row-index text-center">
                             {% if dataset.status == 'Ready' %}
                                 <button value="{{ dataset.csv_file.url }}" data-url="{% url 'schema_detail' schema.pk  %}"
-                                    class="btn btn-dark float-right download-btn">Download</button>
+                                    class="btn btn-dark download-btn">Download</button>
                             {%endif%}
                         </td>
                     </tr>
