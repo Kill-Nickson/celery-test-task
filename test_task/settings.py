@@ -10,6 +10,7 @@ SECRET_KEY = 'fzjz1a)(-4n=k=78ei+(59=q$^*olp_my)8(m9!9u3_jv4n+tp'
 DEBUG = True
 
 ALLOWED_HOSTS = ['django-data-generator.herokuapp.com',
+                 'django-data-generator-2.herokuapp.com',
                  '127.0.0.1']
 
 # Application definition
