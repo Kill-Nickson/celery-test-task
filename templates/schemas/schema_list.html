@@ -4,9 +4,8 @@
 
 {% block content %}
     <div>
-        <button class="btn btn-success ml-2" style="float:right;margin-bottom:5%;" type="submit">
-            <a href="{% url 'schema_new' %}" style="float:right;margin-bottom:5%;color:white;text-decoration:none">Add schema</a>
-        </button>
+        <a href="{% url 'schema_new' %}" class="btn btn-success ml-2"
+           style="float:right;margin-bottom:5%;color:white;text-decoration:none">Add schema</a>
         <h2 style="text-align:left;margin-bottom:5%;">Data schemas</h2>
         <h4 style="text-align:left;float:left;margin-right:5%;">#</h4>
         <h4 style="text-align:centre;float:left;">Title</h4>
