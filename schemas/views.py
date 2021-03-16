@@ -40,17 +40,14 @@ class SchemaDetailView(LoginRequiredMixin, DetailView):
             dataset.save()
 
             # Pull task to celery
-            print('csv1')
             create_csv_2.delay(dataset_pk=dataset.pk,
                                rows_amount=request.GET['rows-amount'],
                                column_separator=self.get_object().column_separator,
                                columns=self.get_object().columns)
-            print('csv2')
             return HttpResponse('Dataset is in a creation queue!')
 
         else:
-            self.object = self.get_object()
-            context = self.get_context_data(object=self.object)
+            context = self.get_context_data(object=self.get_object())
             return self.render_to_response(context)
 
 
