@@ -110,7 +110,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_URL = '/users/login/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.custom.EmailBackend'
+EMAIL_BACKEND = 'test_task.custom.EmailBackend'
 
 CELERY_BROKER_URL = 'redis://redis-django-data-generator-10183276:2bjYomapBjEYw3LJhRaipfh3gqEcsrZc@redis-10244.c10.us' \
                     '-east-1-2.ec2.cloud.redislabs.com:10244 '
